@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Private-Eventes
+# Private-Events
 
 > This project is a practice for Active Records Associations in Ruby on Rails framework.
 
