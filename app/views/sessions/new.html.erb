@@ -1,0 +1,8 @@
+<%= form_with url: '/sessions' do |f| %>
+  <%= label_tag(:name, "Please fill in your name:") %>
+  <br>
+  <%= f.text_field(:name, placeholder: 'Name') %>
+  <br>
+  <br>
+  <%= f.submit('Sign In') %>
+<% end %>
