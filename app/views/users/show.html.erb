@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Your created events</h2>
 <table>
   <thead>
     <tr>
@@ -14,6 +15,48 @@
         <td><%= event.location %></td>
         <td><%= event.date %></td>
       </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Your upcoming events events</h2>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atendences.each do |atendence| %>
+      <% if atendence.attended_event.date > Time.now %>
+        <tr>
+          <td><%= atendence.attended_event.name %></td>
+          <td><%= atendence.attended_event.location %></td>
+          <td><%= atendence.attended_event.date %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Your previously attended events events</h2>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atendences.each do |atendence| %>
+      <% if atendence.attended_event.date < Time.now %>
+        <tr>
+          <td><%= atendence.attended_event.name %></td>
+          <td><%= atendence.attended_event.location %></td>
+          <td><%= atendence.attended_event.date %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

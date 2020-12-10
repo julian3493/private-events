@@ -5,11 +5,14 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @upcoming_events = Event.upcoming
+    @previously_events = Event.past
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @atendences = Event.find(params[:id]).atendences
   end
 
   # GET /events/new

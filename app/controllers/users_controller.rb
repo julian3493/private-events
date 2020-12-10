@@ -10,7 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @events = current_user.events if current_user
+    @events = User.find(params[:id]).events
+    @atendences = User.find(params[:id]).atendences
   end
 
   # GET /users/new

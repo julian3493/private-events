@@ -2,5 +2,8 @@
 
 <h1>Created by: <%= @event.creator.name%></h1>
 
+<% @atendences.each do |atendence| %>
+  <p><%= atendence.atendee.name %></p>
+<% end %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
