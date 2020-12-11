@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :sign_in?
+  helper_method :current_user, :sign_in?, :authenticated?
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -7,5 +7,12 @@ class ApplicationController < ActionController::Base
 
   def sign_in?
     current_user != nil
+  end
+
+  def authenticated?
+    return if sign_in?
+
+    flash[:alert] = 'You must be logged in to perform that action'
+    redirect_to new_user_path
   end
 end
