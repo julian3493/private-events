@@ -10,9 +10,15 @@
   </head>
 
   <body>
+    <p class="control">
+      <%= link_to 'Private Events', root_path, class: 'is-capitalized title is-3' %>
+    </p>
     <% if sign_in? %> 
       <p class="control">
-        <%= link_to 'Log Out', session_path(session[:name]), method: :delete %>
+        Welcome <%= link_to current_user.name, current_user %>
+      </p>
+      <p class="control">
+        <%= link_to 'Log Out', session_path(session[:name]), method: :delete, class: "button is-primary" %>
       </p>
     <% else %>
       <p class="control">
