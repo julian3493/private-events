@@ -1,5 +1,4 @@
 class AtendenceController < ApplicationController
-  
   def create
     @atendence = Atendence.new(atendence_params)
 
@@ -13,13 +12,14 @@ class AtendenceController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_atendence
-      @atendence = Atendence.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def atendence_params
-      params.require(:atendence).permit(:atendee_id, :attended_event_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_atendence
+    @atendence = Atendence.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def atendence_params
+    params.require(:atendence).permit(:atendee_id, :attended_event_id)
+  end
 end
