@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+
+<% if sign_in? && current_user.id == @user.id %>
+  <%= link_to 'Add an event', new_event_path, class: 'button is-primary' %>
+<% end %>
+
 <h2>Your created events</h2>
 <table>
   <thead>

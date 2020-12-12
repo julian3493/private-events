@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<% if sign_in? %>
+  <%= link_to 'Add an event', new_event_path, class: 'button is-primary' %>
+<% end %>
+
 
 <h1>Upcoming Events</h1>
 
