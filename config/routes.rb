@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :users
-  resources :sessions
-  resources :events
+  resources :users, only: [:show, :new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :events, only: [:index, :show, :new, :create]
   resources :atendences
   root 'events#index'
 end
