@@ -4,7 +4,7 @@
 
 > This project is a practice for Active Records Associations in Ruby on Rails framework.
 
-The Idea for this project is to create the models and relationships required to achieve the functionality.
+The Idea for this project is to create the models and relationships required to achieve the functionality. In the index you can see all the events separated in past and upcoming events, if you click see event you can see who will attend to that event. When a user log in he/she can see a button to create and event in the index page, the user can also access to his profile clicking the name in the welcome message. the title in the nav-bar is a link to the index page.
 
 ![screenshot](/app/assets/images/Screenshot_1.png)
 
