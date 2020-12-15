@@ -7,12 +7,8 @@ RSpec.describe 'Event', type: :feature do
       visit new_session_path
       fill_in 'name', with: 'User'
       find("input[type='submit']").click
-      visit new_event_path
-      fill_in 'event_name', with: 'event name'
-      fill_in 'event_location', with: 'location'
-      fill_in 'event_date', with: '2020-12-31 00:00:00'
-      find("input[type='submit']").click
-      expect(page).to have_content('Event was successfully created.')
+      find("a[href='/events/new'").click
+      expect(page).to have_content('New Event')
     end
 
     it 'does not allow to create an event if user is not logged in' do
