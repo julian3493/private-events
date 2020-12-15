@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       flash.notice = 'Logged in!'
     else
       flash.alert = 'Invalid user name'
-      render 'sessions#new'
+      redirect_to new_session_path
     end
   end
 
