@@ -21,24 +21,39 @@
       </div>
     <% end %>
     
-    <p class="control">
-      <%= link_to 'Private Events', root_path, class: 'is-capitalized title is-3' %>
-    </p>
-    <% if sign_in? %> 
-      <p class="control">
-        Welcome <%= link_to current_user.name, current_user %>
-      </p>
-      <p class="control">
-        <%= link_to 'Log Out', session_path(session[:name]), method: :delete, class: "button is-primary" %>
-      </p>
-    <% else %>
-      <p class="control">
-        <%= link_to 'Sign In', new_session_path, class: "button is-primary" %>
-      </p>
-      <p class="control">
-        <%= link_to 'Sign Up', new_user_path, class: "button is-primary" %>
-      </p>
-    <% end %>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <p class="navbar-item">
+          <h1 class='title is-3 navbar-item'><%= link_to 'Private Events', root_path %></h1>
+        </p>
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <% if sign_in? %> 
+              <p class="control">
+                Welcome <%= link_to current_user.name, current_user %>
+              </p>
+              <p class="control">
+                <%= link_to 'Log Out', session_path(session[:name]), method: :delete, class: "button is-primary" %>
+              </p>
+            <% else %>
+              <p class="control">
+                <%= link_to 'Sign In', new_session_path, class: "button is-primary" %>
+              </p>
+              <p class="control">
+                <%= link_to 'Sign Up', new_user_path, class: "button is-primary" %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    
+
     <%= yield %>
   </body>
 </html>
