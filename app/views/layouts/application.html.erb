@@ -31,6 +31,11 @@
 
       <div class="navbar-end">
         <div class="navbar-item">
+          <% if sign_in? %>
+            <%= link_to 'Add an event', new_event_path, class: 'button is-primary' %>
+          <% end %>
+        </div>
+        <div class="navbar-item">
           <div class="buttons">
             <% if sign_in? %> 
               <p class="control">
