@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Created by: <%= @event.creator.name%></h1>
+
+<% @atendences.each do |atendence| %>
+  <p><%= atendence.atendee.name %></p>
+<% end %>
+<%= link_to 'Back', root_path %>

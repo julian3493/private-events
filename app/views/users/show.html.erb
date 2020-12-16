@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+
+<% if sign_in? && current_user.id == @user.id %>
+  <%= link_to 'Add an event', new_event_path, class: 'button is-primary' %>
+<% end %>
+
+<h2>Your created events</h2>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.location %></td>
+        <td><%= event.date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Your upcoming events events</h2>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atendences.each do |atendence| %>
+      <% if atendence.attended_event.date > Time.now %>
+        <tr>
+          <td><%= atendence.attended_event.name %></td>
+          <td><%= atendence.attended_event.location %></td>
+          <td><%= atendence.attended_event.date %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Your previously attended events events</h2>
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atendences.each do |atendence| %>
+      <% if atendence.attended_event.date < Time.now %>
+        <tr>
+          <td><%= atendence.attended_event.name %></td>
+          <td><%= atendence.attended_event.location %></td>
+          <td><%= atendence.attended_event.date %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', root_path %>
